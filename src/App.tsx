@@ -16,10 +16,16 @@ function App() {
       });
   }
 
+  const deleteTodosOnClick = (todoItemId: string) => {
+      setTodoItem((prevTodos) => {
+        return prevTodos.filter(todos => todos.id !== todoItemId);
+      });
+  }
+
   return (
     <div>
       <NewTodos onAddTodo={addTodoHandler}/>
-      <Todos items={todoItem} />
+      <Todos items={todoItem} onClickHandler={deleteTodosOnClick} />
     </div>
   );
 }

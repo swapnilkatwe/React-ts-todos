@@ -2,14 +2,14 @@ import React from "react";
 import Todo from "../models/todo";
 import ListItem from "./ListItem";
 
-type props = { items: Todo[]}
+type props = { items: Todo[]; onClickHandler: (todoItemId: string)=> void}
 
 const Todos: React.FC<React.PropsWithChildren<props>> = (props) => {
    
    return (<ul>
         {
             props.items.map((item) => (
-                <ListItem key={item.id} text= {item.text}/>
+                <ListItem key={item.id} text= {item.text} onClickHandler={props.onClickHandler.bind(null,item.id)}/>
                 // <ListItem item={item}/>
             ))
         }

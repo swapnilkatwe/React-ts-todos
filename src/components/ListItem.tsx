@@ -1,9 +1,9 @@
 import React from "react";
 import classes from './css/TodoItem.module.css'
 
-const ListItem: React.FC<React.PropsWithChildren<{text: string}>> = (props) => {
+const ListItem: React.FC<React.PropsWithChildren<{text: string, onClickHandler: ()=> void }>> = (props) => {
     return (
-        <li className={classes.item}>{props.text}</li>
+        <li className={classes.item} onClick={props.onClickHandler}>{props.text}</li>
     );
 }
 
